@@ -5,6 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { api } from "../../services/api"
 import { Contact } from "../../pages/Dashboard"
 import { Modal } from "../Modal"
+import { Button } from "../Button/buttons"
+import { Title2 } from "../../styles/Fonts/fonts"
 
 interface ModalAddContactProps {
 
@@ -26,6 +28,7 @@ export const ModalAddContact = ({ toggleModal, setContact }: ModalAddContactProp
 
   return (
     <Modal toggleModal={toggleModal}>
+      <h1>Crie seu contato</h1>
       <form onSubmit={handleSubmit(create)}>
         <label htmlFor="name">Nome</label>
         <input type="text" id="name" {...register('name')} />
@@ -37,7 +40,7 @@ export const ModalAddContact = ({ toggleModal, setContact }: ModalAddContactProp
         <input type="text" id="phone" {...register('phone')} />
 
 
-        <button type="submit">Cadastrar</button>
+        <Button type="submit" typeButton="att">Cadastrar</Button>
       </form>
     </Modal>
   )

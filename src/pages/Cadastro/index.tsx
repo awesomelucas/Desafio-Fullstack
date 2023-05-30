@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../../services/api";
 import { RegisterData, contactSchema } from "./validation";
-import { Contact } from "../Dashboard";
 import { Container, ContainerNoventaHeader } from "../../components/Container/style";
 import { Button } from "../../components/Button/buttons";
 import { Title2, Title3 } from "../../styles/Fonts/fonts";
