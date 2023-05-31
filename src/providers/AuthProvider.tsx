@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const token = localStorage.getItem("your-todolist:token")
+    const token = localStorage.getItem("your-token:token")
 
     if(!token) {
       setLoading(false)
@@ -32,11 +32,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, [])
 
   const signIn = async (data: LoginData) => {
+    
     try {
-      const response = await api.post("/login", data)
+      const response = await api.post("/login", {...data})
 
       api.defaults.headers.common.authorization = `Bearer ${response.data.login}`
-      localStorage.setItem("your-todolist:token", response.data.login)
+      localStorage.setItem("your-token:token", response.data.login)
 
       navigate('dashboard')
     } catch (error) {
